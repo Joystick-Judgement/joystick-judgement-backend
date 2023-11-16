@@ -27,7 +27,9 @@ dependencies {
         "org.springframework.boot:spring-boot-starter-actuator",
         "org.springframework.boot:spring-boot-starter-hateoas",
         "org.springframework.boot:spring-boot-starter-web",
-        "org.liquibase:liquibase-core"
+        "org.liquibase:liquibase-core",
+        "org.springdoc:springdoc-openapi-ui:1.7.0",
+        "org.springdoc:springdoc-openapi-data-rest:1.7.0",
     )
     compileOnly("org.projectlombok:lombok")
     developmentOnly("org.springframework.boot:spring-boot-devtools")

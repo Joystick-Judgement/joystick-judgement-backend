@@ -8,5 +8,5 @@ import org.springframework.web.bind.annotation.RestController;
 public class TestResource {
 
     @GetMapping("hi")
-    public String hello() {return "Hello World!";  }
+    public String hello() {return "Hello World Native!";  }
 }

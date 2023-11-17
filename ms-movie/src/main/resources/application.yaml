@@ -51,6 +51,4 @@ springdoc:
     path: /docs
     operationsSorter: method
 
-#Por o app no docker compose
-#Precisa colocar e testar o spring native ler doc
 #Dps precisa pegar a task pra configurar o ci e cd

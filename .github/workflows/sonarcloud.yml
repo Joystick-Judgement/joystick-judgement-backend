@@ -31,34 +31,32 @@ name: SonarCloud analysis
 on:
   push:
     branches: [ "main", "develop" ]
-    paths:
-      - 'ms-movie/**'
+    # paths:
+    #   - 'ms-movie/**'  
   pull_request:
     branches: [ "main", "develop", "feature/**", "bugfix/**", "hotfix/**"  ]
-    paths:
-      - 'ms-movie/**'
+    # paths:
+    #   - 'ms-movie/**'
   workflow_dispatch:
 
 permissions:
   pull-requests: read # allows SonarCloud to decorate PRs with analysis results
 
 jobs:
-  Analysis:
+  sonarcloudScan:
+    name: SonarCloudScan1
     runs-on: ubuntu-latest
-
     steps:
-      - name: Analyze with SonarCloud
-        # You can pin the exact commit or the version.
-        # uses: SonarSource/sonarcloud-github-action@de2e56b42aa84d0b1c5b622644ac17e505c9a049
-        uses: SonarSource/sonarcloud-github-action@de2e56b42aa84d0b1c5b622644ac17e505c9a049
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}   # Generate a token on Sonarcloud.io, add it to the secrets of this repo with the name SONAR_TOKEN (Settings > Secrets > Actions > add new repository secret)
+      - uses: actions/checkout@v3
         with:
-          # Additional arguments for the sonarcloud scanner
-          args:
-            # Unique keys of your project and organization. You can find them in SonarCloud > Information (bottom-left menu)
-            # mandatory
+          fetch-depth: 0  
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        with:
+          projectBaseDir: ms-movie/
             -Dsonar.projectKey=Joystick-Judgement_joystick-judgement-backend
             -Dsonar.organization=joystick-judgement
             -Dsonar.verbose=false

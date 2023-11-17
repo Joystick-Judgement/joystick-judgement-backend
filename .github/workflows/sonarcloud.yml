@@ -61,7 +61,5 @@ jobs:
             # mandatory
             -Dsonar.projectKey=Joystick-Judgement_joystick-judgement-backend
             -Dsonar.organization=joystick-judgement
-            -Dsonar.sources=./ms-movie
-            -Dsonar.projectBaseDir=./ms-movie
             -Dsonar.tests=./ms-movie/src/test
             -Dsonar.verbose=false

@@ -3,6 +3,8 @@ spring:
     name: ms-movie
   profiles:
     active: ${PROFILE:local}
+  liquibase:
+    enabled: false
   datasource:
     url: ${DB_URL}
     username: ${DB_USER}
@@ -30,26 +32,25 @@ server:
     include-binding-errors: always
   port: ${PORT:8080}
 
-
 management:
   health:
     defaults:
       enabled: false
     db:
       enabled: true
+  endpoint:
+    health:
+        show-details: "always"
+        enabled: true
   endpoints:
-    web:
-      exposure:
-        include: "health,httptrace,info,liquibase"
-
-#PRecisa ler dnv sobre o actuator..
-#Precisa fazer o springodc funfar
-#Precisa testar o spring native
-#Dps precisa pegar a task pra configurar o ci e cd
+    enabled-by-default: false
 
 springdoc:
   show-actuator: true
   swagger-ui:
-    disable-swagger-default-url: true
-    config-url: /v3/api-docs/swagger-config
-    path: /v3/api-docs
+    path: /docs
+    operationsSorter: method
+
+#Por o app no docker compose
+#Precisa colocar e testar o spring native ler doc
+#Dps precisa pegar a task pra configurar o ci e cd

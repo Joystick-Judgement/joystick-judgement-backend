@@ -26,13 +26,13 @@ dependencies {
     implementations(
         "org.springframework.boot:spring-boot-starter-actuator",
         "org.springframework.boot:spring-boot-starter-hateoas",
+        "org.springframework.boot:spring-boot-starter-validation",
+        "org.springframework.boot:spring-boot-starter-data-jpa",
         "org.springframework.boot:spring-boot-starter-web",
         "org.liquibase:liquibase-core",
-        "org.springdoc:springdoc-openapi-ui:1.7.0",
-        "org.springdoc:springdoc-openapi-data-rest:1.7.0",
+        "org.springdoc:springdoc-openapi-starter-webmvc-ui:2.2.0",
     )
     compileOnly("org.projectlombok:lombok")
-    developmentOnly("org.springframework.boot:spring-boot-devtools")
     developmentOnly("org.springframework.boot:spring-boot-docker-compose")
     runtimeOnly("org.postgresql:postgresql")
     annotationProcessor("org.projectlombok:lombok")

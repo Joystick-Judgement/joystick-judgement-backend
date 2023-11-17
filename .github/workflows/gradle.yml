@@ -20,12 +20,13 @@ on:
 permissions:
   contents: read
 
+defaults:
+  run:
+    working-directory: ./ms-movie
+
 jobs:
   build:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./ms-movie
     steps:
     - uses: actions/checkout@v3
     - name: Set up JDK 21

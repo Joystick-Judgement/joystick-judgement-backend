@@ -50,5 +50,3 @@ springdoc:
   swagger-ui:
     path: /docs
     operationsSorter: method
-
-#Dps precisa pegar a task pra configurar o ci e cd

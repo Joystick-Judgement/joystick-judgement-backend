@@ -11,7 +11,7 @@
 
 # 2. Import your project on SonarCloud
 #     * Add your GitHub organization first, then add your repository as a new project.
-#     * Please note that many languages are eligible for automatic analysis,
+#     * Please note that many languages are eligiblhttps://github.com/Joystick-Judgement/joystick-judgement-backend/edit/main/.github/workflows/sonarcloud.ymle for automatic analysis,
 #       which means that the analysis will start automatically without the need to set up GitHub Actions.
 #     * This behavior can be changed in Administration > Analysis Method.
 #
@@ -31,12 +31,12 @@ name: SonarCloud analysis
 on:
   push:
     branches: [ "main", "develop" ]
-    paths:
-      - 'ms-movie/**'
+    # paths:
+    #   - 'ms-movie/**'
   pull_request:
     branches: [ "main", "develop", "feature/**", "bugfix/**", "hotfix/**"  ]
-    paths:
-      - 'ms-movie/**'
+    # paths:
+    #   - 'ms-movie/**'
   workflow_dispatch:
 
 permissions:

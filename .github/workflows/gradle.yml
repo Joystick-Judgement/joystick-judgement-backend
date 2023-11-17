@@ -22,8 +22,7 @@ permissions:
 
 defaults:
   run:
-    working-directory: .././ms-movie
-
+    working-directory: ./ms-movie
 jobs:
   build:
     runs-on: ubuntu-latest

@@ -31,13 +31,13 @@ name: SonarCloud analysis
 on:
   push:
     branches: [ "main", "develop" ]
-    # paths:
-    #   - 'ms-movie/**'  
+    paths:
+      - 'ms-movie/**'
   pull_request:
     branches: [ "main", "develop", "feature/**", "bugfix/**", "hotfix/**"  ]
     types: [opened, synchronize, reopened]
-    # paths:
-    #   - 'ms-movie/**'
+    paths:
+      - 'ms-movie/**'
 
 jobs:
   build:

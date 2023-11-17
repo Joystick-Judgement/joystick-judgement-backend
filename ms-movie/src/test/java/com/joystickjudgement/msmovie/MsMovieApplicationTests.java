@@ -7,8 +7,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 class MsMovieApplicationTests {
 
 	@Test
-	void basicTest() {
-		Assertions.assertThat(1).isEqualTo(1);
+	void basicTest()
+	{
+		Assertions.assertThat(1+1).isEqualTo(2);
 	}
 
 }

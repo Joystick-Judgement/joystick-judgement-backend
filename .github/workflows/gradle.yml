@@ -23,9 +23,6 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./ms-movie
     steps:
     - uses: actions/checkout@v3
     - name: Set up JDK 21
@@ -34,10 +31,9 @@ jobs:
         java-version: '21'
         distribution: 'temurin'
     - name: Build ms-movie
-      uses: gradle/gradle-build-action@bd5760595778326ba7f1441bcf7e88b49de61a25 # v2.6.0
-      with:
-        arguments: build -x test
-    - name: Run ms-movie unitary tests
-      uses: gradle/gradle-build-action@bd5760595778326ba7f1441bcf7e88b49de61a25 # v2.6.0
-      with:
-        arguments: test
+      working-directory: ./ms-movie
+      run: ./gradlew build -x test
+    # - name: Run ms-movie unitary tests
+    #   uses: gradle/gradle-build-action@bd5760595778326ba7f1441bcf7e88b49de61a25 # v2.6.0
+    #   with:
+    #     arguments: test

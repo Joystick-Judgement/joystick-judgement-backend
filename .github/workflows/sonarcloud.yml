@@ -31,12 +31,12 @@ name: SonarCloud analysis
 on:
   push:
     branches: [ "main", "develop" ]
-    # paths:
-    #   - 'ms-movie/**'
+    paths:
+      - 'ms-movie/**'
   pull_request:
     branches: [ "main", "develop", "feature/**", "bugfix/**", "hotfix/**"  ]
-    # paths:
-    #   - 'ms-movie/**'
+    paths:
+      - 'ms-movie/**'
   workflow_dispatch:
 
 permissions:

@@ -30,11 +30,11 @@ jobs:
       with:
         java-version: '21'
         distribution: 'temurin'
-    - name: Build
+    - name: Build ms-movie
       uses: gradle/gradle-build-action@bd5760595778326ba7f1441bcf7e88b49de61a25 # v2.6.0
       with:
-        arguments: build -x test
-    - name: Unitary tests
+        arguments: build -p ms-movie/ -x test
+    - name: Run ms-movie unitary tests
       uses: gradle/gradle-build-action@bd5760595778326ba7f1441bcf7e88b49de61a25 # v2.6.0
       with:
-        arguments: test
+        arguments: -p ms-movie/ test

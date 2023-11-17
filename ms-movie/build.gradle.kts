@@ -25,6 +25,7 @@ sonar {
         property("sonar.projectKey", "Joystick-Judgement_joystick-judgement-backend")
         property("sonar.organization", "joystick-judgement")
         property("sonar.host.url", "https://sonarcloud.io")
+        property("sonar.coverage.jacoco.xmlReportPaths", "build/reports/jacoco/test/jacocoTestReport.xml")
     }
 }
 

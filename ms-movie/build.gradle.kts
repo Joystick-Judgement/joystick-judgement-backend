@@ -3,6 +3,7 @@ plugins {
     id("org.springframework.boot") version "3.1.5"
     id("io.spring.dependency-management") version "1.1.3"
     id("org.graalvm.buildtools.native") version "0.9.27"
+    id("org.sonarqube") version "4.4.1.3373"
 }
 
 group = "com.joystick-judgement"
@@ -15,6 +16,14 @@ java {
 configurations {
     compileOnly {
         extendsFrom(configurations.annotationProcessor.get())
+    }
+}
+
+sonar {
+    properties {
+        property("sonar.projectKey", "Joystick-Judgement_joystick-judgement-backend")
+        property("sonar.organization", "joystick-judgement")
+        property("sonar.host.url", "https://sonarcloud.io")
     }
 }
 

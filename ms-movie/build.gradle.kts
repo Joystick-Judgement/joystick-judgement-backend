@@ -1,5 +1,6 @@
 plugins {
     java
+    jacoco
     id("org.springframework.boot") version "3.1.5"
     id("io.spring.dependency-management") version "1.1.3"
     id("org.graalvm.buildtools.native") version "0.9.27"
@@ -55,6 +56,15 @@ tasks {
     }
 
     withType<Test> {
+
+        jacocoTestReport {
+            dependsOn(test)
+            reports {
+                xml.required = true
+            }
+        }
+        finalizedBy(jacocoTestReport)
+
         useJUnitPlatform()
         systemProperties(
             "junit.jupiter.testinstance.lifecycle.default" to "per_class"
@@ -63,7 +73,9 @@ tasks {
             reports.html.required = false
             reports.junitXml.required = false
         }
+
     }
+
     bootBuildImage {
         builder.set("paketobuildpacks/builder-jammy-tiny:latest")
     }

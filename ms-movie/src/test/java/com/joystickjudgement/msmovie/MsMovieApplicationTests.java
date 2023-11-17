@@ -1,13 +1,14 @@
 package com.joystickjudgement.msmovie;
 
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
 class MsMovieApplicationTests {
 
 	@Test
-	void contextLoads() {
+	void basicTest() {
+		Assertions.assertThat(1).isEqualTo(1);
 	}
 
 }

@@ -60,3 +60,4 @@ jobs:
             -Dsonar.projectKey=Joystick-Judgement_joystick-judgement-backend
             -Dsonar.organization=joystick-judgement
             -Dsonar.verbose=false
+            -Dsonar.java.binaries=build/classes/java

@@ -95,3 +95,4 @@ tasks {
 fun DependencyHandlerScope.implementations(vararg all: Any) {
     for (impl in all) implementation(impl)
 }
+

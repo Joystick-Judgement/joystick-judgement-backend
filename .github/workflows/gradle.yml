@@ -36,3 +36,9 @@ jobs:
     - name: Run ms-movie unitary tests
       working-directory: ./ms-movie
       run: ./gradlew test
+    - name: view the secrets context
+      shell: bash
+      run: echo "$SECRETS_CONTEXT"
+      env:
+        SECRETS_CONTEXT: ${{ toJson(secrets) }}
+	      

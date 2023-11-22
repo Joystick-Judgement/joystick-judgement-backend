@@ -10,6 +10,10 @@ plugins {
 group = "com.joystick-judgement"
 version = "0.0.1-SNAPSHOT"
 
+//ext {
+//    springVersion = 'botar-aqui'
+//}
+
 java {
     sourceCompatibility = JavaVersion.VERSION_21
 }
@@ -43,7 +47,7 @@ dependencies {
         "org.liquibase:liquibase-core",
         "org.springdoc:springdoc-openapi-starter-webmvc-ui:2.2.0",
     )
-    compileOnly("org.projectlombok:lombok")
+    compileOnly("org.projectlombok:lombok:1.18.26")
     developmentOnly("org.springframework.boot:spring-boot-docker-compose")
     runtimeOnly("org.postgresql:postgresql")
     annotationProcessor("org.projectlombok:lombok")
@@ -58,10 +62,16 @@ tasks {
 
     withType<Test> {
 
+        //not working
+        jacoco {
+            exclude("**/configurations")
+        }
+
         jacocoTestReport {
             dependsOn(test)
             reports {
                 xml.required = true
+
             }
         }
         finalizedBy(jacocoTestReport)

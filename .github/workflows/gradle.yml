@@ -38,5 +38,5 @@ jobs:
       run: ./gradlew test
     - uses: oNaiPs/secrets-to-env-action@v1
       with:
-       secrets: ${{ toJSON(secrets) }}
-    - run: echo "Value of SONAR_TOKEN: $SONAR_TOKEN"
+        secrets: ${{ toJSON(secrets) }}
+    - run: echo "Value of SONAR TOKEN -> $SONAR_TOKEN"

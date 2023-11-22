@@ -36,7 +36,3 @@ jobs:
     - name: Run ms-movie unitary tests
       working-directory: ./ms-movie
       run: ./gradlew test
-    - uses: oNaiPs/secrets-to-env-action@v1
-      with:
-        secrets: ${{ toJSON(secrets) }}
-    - run: echo "Value of SONAR TOKEN -> $SONAR_TOKEN"

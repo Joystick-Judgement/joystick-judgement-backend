@@ -17,11 +17,11 @@ public class SwaggerConfiguration {
                     API that allows the management of electronic games and also that have reviews attached to them.
                    
                     Main features:
-                        * Movies management by admin
-                            * Movie registration with image upload in bucket
-                            * Movie update, deletion and search by custom filters and custom sort
-                        * Movie reviews by anonymous users
-                        * Email delivery of spam/malicious reviews to the admins by webhook.
+                        * Games management by admin
+                            * Game registration with image upload in bucket
+                            * Game update, deletion and search by custom filters and custom sort
+                        * Game reviews by anonymous users
+                        * Email delivery of spam/malicious games to the admins by webhook.
                         
                     Backend contributors:
                         * Github
@@ -35,7 +35,7 @@ public class SwaggerConfiguration {
         return new OpenAPI()
                 .info(
                         new Info()
-                                .title("Microservice Movie API")
+                                .title("Microservice Game API")
                                 .version("1.0")
                                 .summary("API that allows the management of electronic games and also that have reviews attached to them.")
                                 .description(API_DESCRIPTION)

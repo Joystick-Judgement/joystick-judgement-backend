@@ -1,10 +1,7 @@
 package com.joystickjudgement.msmovie.entities;
 
 import com.joystickjudgement.msmovie.enums.ReviewRating;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EntityListeners;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
@@ -36,9 +33,11 @@ public class Review {
     private ReviewRating rating;
 
     @Getter
+    @Column(name = "upvotes")
     private Integer numberOfUpvotes;
 
     @Getter
+    @Column(name = "downvotes")
     private Integer numberOfDownvotes;
 
     @CreatedDate

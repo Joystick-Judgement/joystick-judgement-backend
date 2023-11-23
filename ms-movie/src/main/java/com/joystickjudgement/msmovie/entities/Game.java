@@ -50,9 +50,11 @@ public class Game {
     private LocalDate releaseDate;
 
     @Getter
+    @Column(name = "parental_rating")
     private GameParentalRating parentalRating;
 
     @Getter
+    @Column(name = "visualizations")
     private BigInteger numberOfVisualizations;
 
     @Getter
@@ -61,10 +63,12 @@ public class Game {
 
     @CreatedDate
     @Getter
+    @Column(name = "created_at")
     private final LocalDate createdAt = LocalDate.now();
 
     @LastModifiedDate
     @Getter
+    @Column(name = "updated_at")
     private LocalDate lastModifiedAt;
 
 }

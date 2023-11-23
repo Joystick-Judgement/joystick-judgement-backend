@@ -41,6 +41,7 @@ public class Review {
     private Integer numberOfDownvotes;
 
     @CreatedDate
+    @Column(name = "created_at")
     @Getter
     private final LocalDate createdAt = LocalDate.now();
 

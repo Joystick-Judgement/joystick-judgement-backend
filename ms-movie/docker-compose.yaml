@@ -32,8 +32,9 @@ services:
     env_file:
       - .env
     image: ms-movie-image
-    labels:
-      org.springframework.boot.ignore: true
+    deploy:
+      labels:
+        org.springframework.boot.ignore: true
     expose:
       - $PORT
     ports:
@@ -45,11 +46,15 @@ services:
         condition: service_healthy
   ms-movie-native:
     container_name: ms-movie-api-native
+    build:
+      context: ./
+      dockerfile: Dockerfile-native
     env_file:
       - .env
     image: ms-movie:0.0.1-SNAPSHOT
-    labels:
-      org.springframework.boot.ignore: true
+    deploy:
+      labels:
+        org.springframework.boot.ignore: true
     expose:
       - $PORT
     ports:

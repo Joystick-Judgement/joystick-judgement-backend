@@ -21,17 +21,17 @@ CREATE TABLE game (
 );
 
 COMMENT ON TABLE public.game IS 'Represents a game created in the platform';
-COMMENT ON TABLE public.game.id IS 'Unique identifier of the game';
-COMMENT ON TABLE public.game.name IS 'Name of the game';
-COMMENT ON TABLE public.game.description IS 'What the game is about? This attribute tell about it';
-COMMENT ON TABLE public.game.company IS 'Company that created the game';
-COMMENT ON TABLE public.game.genres IS 'Genres of the game';
-COMMENT ON TABLE public.game.publisher IS 'Publisher of the game';
-COMMENT ON TABLE public.game.parental_rating IS 'Parental rating of the game';
-COMMENT ON TABLE public.game.visualizations IS 'Number of times the game was visualized';
-COMMENT ON TABLE public.game.release_date IS 'Date when the game was released';
-COMMENT ON TABLE public.game.created_at IS 'Date when the game was created in the system';
-COMMENT ON TABLE public.game.updated_at IS 'Date when the game was updated in the system';
+COMMENT ON COLUMN public.game.id IS 'Unique identifier of the game';
+COMMENT ON COLUMN public.game.name IS 'Name of the game';
+COMMENT ON COLUMN public.game.description IS 'What the game is about? This attribute tell about it';
+COMMENT ON COLUMN public.game.company IS 'Company that created the game';
+COMMENT ON COLUMN public.game.genres IS 'Genres of the game';
+COMMENT ON COLUMN public.game.publisher IS 'Publisher of the game';
+COMMENT ON COLUMN public.game.parental_rating IS 'Parental rating of the game';
+COMMENT ON COLUMN public.game.visualizations IS 'Number of times the game was visualized';
+COMMENT ON COLUMN public.game.release_date IS 'Date when the game was released';
+COMMENT ON COLUMN public.game.created_at IS 'Date when the game was created in the system';
+COMMENT ON COLUMN public.game.updated_at IS 'Date when the game was updated in the system';
 
 -- rollback drop table game;
 
@@ -46,7 +46,7 @@ CREATE TABLE review (
     upvotes int4 NOT NULL DEFAULT 0,
     downvotes int4 NOT NULL DEFAULT 0,
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    game_id int8 NOT NULL
+    game_id int8 NOT NULL,
     CONSTRAINT game_id_foreign_key FOREIGN KEY (game_id) REFERENCES game(id) ON DELETE CASCADE
 );
 
@@ -55,10 +55,10 @@ CREATE INDEX IF NOT EXISTS idx_review_game_id ON public.review USING BTREE (game
 -- rollback drop table review;
 
 COMMENT ON TABLE public.review IS 'Represents a review of a game';
-COMMENT ON TABLE public.review.id IS 'Unique identifier of the review';
-COMMENT ON TABLE public.review.description IS 'Review description wrote by a person';
-COMMENT ON TABLE public.review.rating IS 'Rating of the review';
-COMMENT ON TABLE public.review.upvotes IS 'Number of upvotes of the review';
-COMMENT ON TABLE public.review.downvotes IS 'Number of downvotes of the review';
-COMMENT ON TABLE public.review.created_at IS 'Date when the review was created in the system';
-COMMENT ON TABLE public.review.game_id IS 'Unique identifier of the game that the review is about';
+COMMENT ON COLUMN public.review.id IS 'Unique identifier of the review';
+COMMENT ON COLUMN public.review.description IS 'Review description wrote by a person';
+COMMENT ON COLUMN public.review.rating IS 'Rating of the review';
+COMMENT ON COLUMN public.review.upvotes IS 'Number of upvotes of the review';
+COMMENT ON COLUMN public.review.downvotes IS 'Number of downvotes of the review';
+COMMENT ON COLUMN public.review.created_at IS 'Date when the review was created in the system';
+COMMENT ON COLUMN public.review.game_id IS 'Unique identifier of the game that the review is about';

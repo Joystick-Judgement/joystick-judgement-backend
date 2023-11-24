@@ -5,6 +5,8 @@ spring:
     active: ${PROFILE:local}
   liquibase:
     enabled: true
+    databaseChangeLogTable: liquibase_change_log
+    databaseChangeLogLockTable: liquibase_change_log_lock
   datasource:
     url: ${DB_URL}
     username: ${DB_USER}

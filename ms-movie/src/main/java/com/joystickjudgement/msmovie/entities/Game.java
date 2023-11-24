@@ -3,6 +3,7 @@ package com.joystickjudgement.msmovie.entities;
 import com.joystickjudgement.msmovie.enums.GameGenre;
 import com.joystickjudgement.msmovie.enums.GameParentalRating;
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
@@ -19,6 +20,7 @@ import java.util.Collection;
 import static jakarta.persistence.GenerationType.IDENTITY;
 
 @Entity
+@Builder
 @ToString
 @EntityListeners(AuditingEntityListener.class)
 @EnableJpaAuditing(modifyOnCreate = false)

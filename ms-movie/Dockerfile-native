@@ -1,5 +1,21 @@
-FROM openjdk:21-jdk as build_image
+FROM ghcr.io/graalvm/jdk-community:21 as first_stage
+
+#Needs to fix it184.2 > Determining GraalVM installation failed with message: 'gu' at '/usr/lib64/graalvm/graalvm-community-java21/bin/gu' tool wasn't found. This probably means that JDK at isn't a GraalVM distribution.
+                #184.2
+                #184.2   Make sure to declare the GRAALVM_HOME environment variable or install GraalVM with native-image in a standard location recognized by Gradle Java toolchain support
+                #184.2
+#184.2 BUILD FAILED in 3m 3s
+ #------
+ #Dockerfile-native:6
+ #--------------------
+ #   4 |     COPY . /app
+ #   5 |     RUN microdnf install findutils
+ #   6 | >>> RUN ./gradlew nativeCompile
+ #   7 |
+ #   8 |
 
 WORKDIR /app
 COPY . /app
-CMD gradlew bootBuildImage
+RUN microdnf install findutils
+RUN ./gradlew nativeCompile
+

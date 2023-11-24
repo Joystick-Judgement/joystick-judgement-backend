@@ -4,7 +4,7 @@ import Build_gradle.DependencyVersions.SPRING_VERSION
 plugins {
     java
     jacoco
-    id("org.springframework.boot") version "3.1.5"
+    id("org.springframework.boot") version "3.2.0"
     id("io.spring.dependency-management") version "1.1.3"
     id("org.graalvm.buildtools.native") version "0.9.27"
     id("org.sonarqube") version "4.4.1.3373"
@@ -18,7 +18,7 @@ java {
 }
 
 object DependencyVersions {
-    const val SPRING_VERSION = "3.1.5"
+    const val SPRING_VERSION = "3.2.0"
     const val MAPSTRUCT_VERSION = "1.5.5.Final"
 }
 

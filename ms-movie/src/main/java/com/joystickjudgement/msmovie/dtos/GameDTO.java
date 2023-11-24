@@ -1,7 +1,6 @@
 package com.joystickjudgement.msmovie.dtos;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.joystickjudgement.msmovie.entities.Game;
 import com.joystickjudgement.msmovie.enums.GameGenre;
 import com.joystickjudgement.msmovie.enums.GameParentalRating;
 import jakarta.validation.constraints.*;
@@ -42,20 +41,4 @@ public record GameDTO(
         @PositiveOrZero
         @NotNull
         BigInteger numberOfVisualizations
-) {
-
-    public Game toDomain() {
-        return Game.builder()
-                .id(id)
-                .name(name)
-                .description(description)
-                .company(company)
-                .genres(genres)
-                .publisher(publisher)
-                .releaseDate(releaseDate)
-                .parentalRating(parentalRating)
-                .numberOfVisualizations(numberOfVisualizations)
-                .build();
-    }
-
-}
+) {}

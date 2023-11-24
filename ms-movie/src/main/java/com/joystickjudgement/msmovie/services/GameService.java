@@ -1,6 +1,7 @@
 package com.joystickjudgement.msmovie.services;
 
 import com.joystickjudgement.msmovie.dtos.GameDTO;
+import com.joystickjudgement.msmovie.mappers.GameMapper;
 import com.joystickjudgement.msmovie.repositories.GameRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.hateoas.EntityModel;
@@ -13,9 +14,12 @@ public class GameService {
 
     private final GameRepository gameRepository;
 
-//    @Transactional
-//    public EntityModel<GameDTO> create(GameDTO dto) {
-//        var domain = gameRepository.save(dto.toDomain());
-//        return EntityModel.of(GameDTO.fromDomain(domain));
-//    }
+    private final GameMapper gameMapper;
+
+    @Transactional
+    public EntityModel<GameDTO> create(GameDTO dto) {
+        //add logs here
+        var domain = gameRepository.save(gameMapper.toDomain(dto));
+        return EntityModel.of(gameMapper.toDTO((domain)));
+    }
 }

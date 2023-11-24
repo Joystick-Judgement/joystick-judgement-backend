@@ -1,3 +1,6 @@
+import Build_gradle.DependencyVersions.MAPSTRUCT_VERSION
+import Build_gradle.DependencyVersions.SPRING_VERSION
+
 plugins {
     java
     jacoco
@@ -16,6 +19,7 @@ java {
 
 object DependencyVersions {
     const val SPRING_VERSION = "3.1.5"
+    const val MAPSTRUCT_VERSION = "1.5.5.Final"
 }
 
 configurations {
@@ -40,19 +44,23 @@ repositories {
 dependencies {
 
     implementations(
-        "org.springframework.boot:spring-boot-starter-actuator:${DependencyVersions.SPRING_VERSION}",
-        "org.springframework.boot:spring-boot-starter-hateoas:${DependencyVersions.SPRING_VERSION}",
-        "org.springframework.boot:spring-boot-starter-validation:${DependencyVersions.SPRING_VERSION}",
-        "org.springframework.boot:spring-boot-starter-data-jpa:${DependencyVersions.SPRING_VERSION}",
-        "org.springframework.boot:spring-boot-starter-web:${DependencyVersions.SPRING_VERSION}",
+        "org.springframework.boot:spring-boot-starter-actuator:$SPRING_VERSION",
+        "org.springframework.boot:spring-boot-starter-hateoas:$SPRING_VERSION",
+        "org.springframework.boot:spring-boot-starter-validation:$SPRING_VERSION",
+        "org.springframework.boot:spring-boot-starter-data-jpa:$SPRING_VERSION",
+        "org.springframework.boot:spring-boot-starter-web:$SPRING_VERSION",
+        "org.mapstruct:mapstruct:$MAPSTRUCT_VERSION",
         "org.liquibase:liquibase-core:4.24.0",
         "org.springdoc:springdoc-openapi-starter-webmvc-ui:2.2.0",
     )
     compileOnly("org.projectlombok:lombok:1.18.26")
-    developmentOnly("org.springframework.boot:spring-boot-docker-compose:${DependencyVersions.SPRING_VERSION}")
+    developmentOnly("org.springframework.boot:spring-boot-docker-compose:$SPRING_VERSION")
     runtimeOnly("org.postgresql:postgresql:42.5.4")
     annotationProcessor("org.projectlombok:lombok")
-    testImplementation("org.springframework.boot:spring-boot-starter-test:${DependencyVersions.SPRING_VERSION}")
+    annotationProcessor("org.projectlombok:lombok-mapstruct-binding:0.2.0")
+    annotationProcessor("org.mapstruct:mapstruct-processor:$MAPSTRUCT_VERSION")
+    testAnnotationProcessor("org.mapstruct:mapstruct-processor:$MAPSTRUCT_VERSION")
+    testImplementation("org.springframework.boot:spring-boot-starter-test:$SPRING_VERSION")
 }
 
 
@@ -61,6 +69,12 @@ tasks {
 
     withType<JavaCompile>().configureEach {
         options.isFork = true
+        options.compilerArgs.plusAssign(
+            listOf(
+                "-Amapstruct.defaultComponentModel=spring",
+                "-Amapstruct.defaultInjectionStrategy=constructor"
+            )
+        )
     }
 
     withType<Test> {

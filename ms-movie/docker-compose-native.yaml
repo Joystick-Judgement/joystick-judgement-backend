@@ -4,6 +4,8 @@ services:
   ms-movie-native:
     container_name: ms-movie-api-native
     image: ms-movie-native-image
+    environment:
+      - LIQUIBASE_ENABLED=false
     env_file:
       - .env
     expose:
@@ -12,9 +14,6 @@ services:
       - "8086:$PORT"
     networks:
       - internal-network
-volumes:
-  database-volume:
-    name: ms-movie-database-volume
 networks:
   internal-network:
     name: ms-movie-network

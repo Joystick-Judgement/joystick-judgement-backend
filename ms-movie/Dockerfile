@@ -4,7 +4,7 @@ WORKDIR /app
 COPY . /app
 CMD gradlew build
 
-FROM amazoncorretto:21-alpine as second_stage
+FROM amazoncorretto:21-alpine as second_dockerstage
 
 ARG PROFILE
 ARG PORT

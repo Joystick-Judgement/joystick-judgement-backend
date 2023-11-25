@@ -4,7 +4,7 @@ spring:
   profiles:
     active: ${PROFILE:local}
   liquibase:
-    enabled: true
+    enabled: ${LIQUIBASE_ENABLED:true}
     databaseChangeLogTable: liquibase_change_log
     databaseChangeLogLockTable: liquibase_change_log_lock
   datasource:

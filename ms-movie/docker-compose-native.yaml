@@ -4,15 +4,14 @@ services:
   ms-movie-native:
     container_name: ms-movie-api-native
     image: ms-movie-native-image
+    env_file:
+      - .env
     expose:
       - $PORT
     ports:
       - "8086:$PORT"
     networks:
       - internal-network
-    depends_on:
-      database:
-        condition: service_healthy
 volumes:
   database-volume:
     name: ms-movie-database-volume

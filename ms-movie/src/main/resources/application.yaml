@@ -3,6 +3,9 @@ spring:
     name: ms-movie
   profiles:
     active: ${PROFILE:local}
+  docker:
+    compose:
+      lifecycle-management: start-only
   liquibase:
     enabled: ${LIQUIBASE_ENABLED:true}
     databaseChangeLogTable: liquibase_change_log

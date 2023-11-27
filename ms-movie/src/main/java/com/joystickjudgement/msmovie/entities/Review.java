@@ -6,8 +6,6 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
 import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
-import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 import java.time.LocalDate;
 
@@ -15,21 +13,20 @@ import static jakarta.persistence.GenerationType.IDENTITY;
 
 @Entity
 @ToString
-@EntityListeners(AuditingEntityListener.class)
-@EnableJpaAuditing(modifyOnCreate = false)
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-public class Review {
+public non-sealed class Review implements Auditable {
 
+    @Getter
     @Id
     @GeneratedValue(strategy = IDENTITY)
     @EqualsAndHashCode.Include
-    @Getter
     private Long id;
 
     @Getter
     private String description;
 
     @Getter
+    @Enumerated(EnumType.STRING)
     private ReviewRating rating;
 
     @Getter

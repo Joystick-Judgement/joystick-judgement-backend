@@ -20,6 +20,7 @@ public class GameService {
     public EntityModel<GameDTO> create(GameDTO dto) {
         //add logs here
         var domain = gameRepository.save(gameMapper.toDomain(dto));
+
         return EntityModel.of(gameMapper.toDTO((domain)));
     }
 }

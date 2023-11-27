@@ -5,11 +5,10 @@ import com.joystickjudgement.msmovie.enums.GameParentalRating;
 import jakarta.persistence.*;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.Setter;
 import lombok.ToString;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
-import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 import java.math.BigInteger;
 import java.time.LocalDate;
@@ -20,55 +19,63 @@ import static jakarta.persistence.GenerationType.IDENTITY;
 
 @Entity
 @ToString
-@EntityListeners(AuditingEntityListener.class)
-@EnableJpaAuditing(modifyOnCreate = false)
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-public class Game {
+public non-sealed class Game implements Auditable {
 
+    @Getter
     @Id
     @GeneratedValue(strategy = IDENTITY)
     @EqualsAndHashCode.Include
-    @Getter
     private Long id;
 
     @Getter
+    @Setter
     private String name;
 
     @Getter
+    @Setter
     private String description;
 
     @Getter
+    @Setter
     private String company;
 
     @Getter
-    private Collection<GameGenre> genres;
+    @Enumerated(EnumType.STRING)
+    private final Collection<GameGenre> genres = new ArrayList<>();
 
     @Getter
+    @Setter
     private String publisher;
 
     @Getter
+    @Setter
     private LocalDate releaseDate;
 
-    @Getter
     @Column(name = "parental_rating")
+    @Getter
+    @Setter
+    @Enumerated(EnumType.STRING)
     private GameParentalRating parentalRating;
 
-    @Getter
     @Column(name = "visualizations")
+    @Getter
+    @Setter
     private BigInteger numberOfVisualizations;
 
-    @Getter
     @OneToMany(orphanRemoval = true)
+    @Getter
     private final Collection<Review> reviews = new ArrayList<>();
 
     @CreatedDate
-    @Getter
     @Column(name = "created_at")
+    @Getter
     private final LocalDate createdAt = LocalDate.now();
 
     @LastModifiedDate
-    @Getter
     @Column(name = "updated_at")
+    @Getter
+    @Setter
     private LocalDate lastModifiedAt;
 
 }

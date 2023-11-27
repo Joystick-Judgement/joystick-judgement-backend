@@ -8,9 +8,12 @@ import org.springframework.hateoas.EntityModel;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-@RestController(value = "games")
+@RestController
+@RequestMapping("games")
 @RequiredArgsConstructor
 public class GameResource {
 
@@ -18,7 +21,16 @@ public class GameResource {
 
     @PostMapping
     public ResponseEntity<EntityModel<GameDTO>> create(@RequestBody @Valid GameDTO dto) {
-        return ResponseEntity.ok(gameService.create(dto));
+
+        var game = gameService.create(dto);
+
+        var uri = ServletUriComponentsBuilder
+                .fromCurrentRequest()
+                .path("/{id}")
+                .buildAndExpand(game.getContent().id())
+                .toUri();
+
+        return ResponseEntity.created(uri).body(game);
     }
 
 }

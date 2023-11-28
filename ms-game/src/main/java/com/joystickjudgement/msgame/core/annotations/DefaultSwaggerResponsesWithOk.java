@@ -1,0 +1,20 @@
+package com.joystickjudgement.msgame.core.annotations;
+
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+
+import java.lang.annotation.*;
+
+import static com.joystickjudgement.msgame.core.entities.GlobalConstantsSingleton.HTTP_OK_CODE;
+
+@DefaultSwaggerHeaders
+@ApiResponses(value = {
+        @ApiResponse(
+                responseCode = HTTP_OK_CODE,
+                description = "Requisição processada com sucesso."
+        )
+})
+@Retention(RetentionPolicy.RUNTIME)
+@Target({ElementType.METHOD, ElementType.TYPE})
+@Documented
+public @interface DefaultSwaggerResponsesWithOk { }

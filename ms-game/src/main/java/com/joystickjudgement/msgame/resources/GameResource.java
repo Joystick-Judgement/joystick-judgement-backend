@@ -1,6 +1,7 @@
 package com.joystickjudgement.msgame.resources;
 
 import com.joystickjudgement.msgame.dtos.GameDTO;
+import com.joystickjudgement.msgame.resources.docs.GameResourceDocs;
 import com.joystickjudgement.msgame.services.GameService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -17,11 +18,12 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 @RequestMapping("games")
 @RequiredArgsConstructor
 @Slf4j
-public class GameResource {
+public class GameResource implements GameResourceDocs {
 
     private final GameService gameService;
 
     @PostMapping
+    @Override
     public ResponseEntity<EntityModel<GameDTO>> create(@RequestBody @Valid GameDTO dto) {
 
         log.info("[START] -> Creating a game with data: {}", dto);

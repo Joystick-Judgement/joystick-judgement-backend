@@ -5,9 +5,9 @@ import java.util.Objects;
 public class GlobalConstantsSingleton {
 
     private static GlobalConstantsSingleton instance;
-    public static final String REQUEST_ID_HEADER = "X-Request-ID";
+    public static final String REQUEST_ID_HEADER = "X-Request-Id";
+    public static final String API_KEY_HEADER = "Api-Key";
     public static final String HTTP_OK_CODE = "200";
-
     public static final String HTTP_CREATED_CODE = "201";
     public static final String HTTP_BAD_REQUEST_CODE = "404";
     public static final String SC_UNPROCESSABLE_ENTITY_CODE = "422";
@@ -24,7 +24,6 @@ public class GlobalConstantsSingleton {
 
     public GlobalConstantsSingleton getInstance() {
         return Objects.requireNonNullElseGet(instance, GlobalConstantsSingleton::new);
-
     }
 
 }

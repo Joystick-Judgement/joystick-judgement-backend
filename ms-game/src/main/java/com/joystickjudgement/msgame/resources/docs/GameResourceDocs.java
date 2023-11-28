@@ -5,6 +5,7 @@ import com.joystickjudgement.msgame.core.annotations.DefaultSwaggerResponses;
 import com.joystickjudgement.msgame.dtos.GameDTO;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.enums.ParameterIn;
 import io.swagger.v3.oas.annotations.headers.Header;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
@@ -13,6 +14,7 @@ import org.springframework.hateoas.EntityModel;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 
+import static com.joystickjudgement.msgame.core.entities.GlobalConstantsSingleton.API_KEY_HEADER;
 import static com.joystickjudgement.msgame.core.entities.GlobalConstantsSingleton.HTTP_CREATED_CODE;
 
 @Tag(description = "<b>Recurso que gerencia os jogos.</b>", name = "games-resource")
@@ -22,12 +24,17 @@ public interface GameResourceDocs {
             summary = "Cria um novo jogo.",
             description = "Permite criar um novo jogo no sistema com certas informações sendo obrigatórias."
     )
+    @Parameter(
+            in = ParameterIn.HEADER,
+            name = API_KEY_HEADER,
+            required = true
+    )
     @DefaultSwaggerHeaders
     @DefaultSwaggerResponses
     @ApiResponses(value = {
             @ApiResponse(
                     responseCode = HTTP_CREATED_CODE,
-                    description = "Recurso criado com sucesso",
+                    description = "Recurso criado com sucesso.",
                     headers = {
                             @Header(
                                     name = HttpHeaders.LOCATION,

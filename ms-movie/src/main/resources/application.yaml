@@ -28,6 +28,9 @@ spring:
     database: POSTGRESQL
     open-in-view: false
     generate-ddl: false
+  output:
+    ansi:
+      enabled: always
 
 server:
   servlet:

@@ -1,3 +1,4 @@
+import Build_gradle.DependencyVersions.LOGBACK_JSON_JACKSON_VERSION
 import Build_gradle.DependencyVersions.MAPSTRUCT_VERSION
 import Build_gradle.DependencyVersions.SPRING_VERSION
 
@@ -20,6 +21,7 @@ java {
 object DependencyVersions {
     const val SPRING_VERSION = "3.2.0"
     const val MAPSTRUCT_VERSION = "1.5.5.Final"
+    const val LOGBACK_JSON_JACKSON_VERSION = "0.1.5"
 }
 
 configurations {
@@ -52,6 +54,9 @@ dependencies {
         "org.mapstruct:mapstruct:$MAPSTRUCT_VERSION",
         "org.liquibase:liquibase-core:4.24.0",
         "org.springdoc:springdoc-openapi-starter-webmvc-ui:2.2.0",
+        "ch.qos.logback.contrib:logback-json-classic:$LOGBACK_JSON_JACKSON_VERSION",
+        "ch.qos.logback.contrib:logback-jackson:0.1.5$LOGBACK_JSON_JACKSON_VERSION",
+        "net.logstash.logback:logstash-logback-encoder:7.4",
     )
     compileOnly("org.projectlombok:lombok:1.18.26")
     developmentOnly("org.springframework.boot:spring-boot-docker-compose:$SPRING_VERSION")

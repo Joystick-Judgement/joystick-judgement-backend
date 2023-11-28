@@ -11,11 +11,11 @@ on:
   push:
     branches: [ "main", "develop" ]
     paths:
-      - 'ms-movie/**'
+      - 'ms-game/**'
   pull_request:
     branches: [ "main", "develop", "feature/**", "bugfix/**", "hotfix/**"  ]
     paths:
-      - 'ms-movie/**'
+      - 'ms-game/**'
 
 permissions:
   contents: read
@@ -30,9 +30,9 @@ jobs:
       with:
         java-version: '21'
         distribution: 'temurin'
-    - name: Build ms-movie
-      working-directory: ./ms-movie
+    - name: Build ms-game
+      working-directory: ./ms-game
       run: ./gradlew build -x test
-    - name: Run ms-movie unitary tests
-      working-directory: ./ms-movie
+    - name: Run ms-game unitary tests
+      working-directory: ./ms-game
       run: ./gradlew test

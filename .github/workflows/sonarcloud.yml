@@ -32,12 +32,12 @@ on:
   push:
     branches: [ "main", "develop" ]
     paths:
-      - 'ms-movie/**'
+      - 'ms-game/**'
   pull_request:
     branches: [ "main", "develop", "feature/**", "bugfix/**", "hotfix/**"  ]
     types: [opened, synchronize, reopened]
     paths:
-      - 'ms-movie/**'
+      - 'ms-game/**'
 
 jobs:
   build:
@@ -68,5 +68,5 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        working-directory: ./ms-movie
+        working-directory: ./ms-game
         run: ./gradlew build sonar --info

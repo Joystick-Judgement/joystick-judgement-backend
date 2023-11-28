@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  ms-game-native:
+    container_name: ms-game-api-native
+    image: ms-game-native-image
+    environment:
+      - LIQUIBASE_ENABLED=false
+    env_file:
+      - .env
+    expose:
+      - $PORT
+    ports:
+      - "8086:$PORT"
+    networks:
+      - internal-network
+networks:
+  internal-network:
+    name: ms-game-network

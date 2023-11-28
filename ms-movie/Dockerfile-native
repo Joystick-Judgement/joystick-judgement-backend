@@ -1,5 +1,0 @@
-FROM openjdk:21-jdk as build_image
-
-WORKDIR /app
-COPY . /app
-CMD gradlew bootBuildImage

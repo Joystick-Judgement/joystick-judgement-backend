@@ -32,6 +32,7 @@ configurations {
 
 sonar {
     properties {
+        property("sonar.projectName", "ms-game")
         property("sonar.projectKey", "Joystick-Judgement_joystick-judgement-backend")
         property("sonar.organization", "joystick-judgement")
         property("sonar.host.url", "https://sonarcloud.io")

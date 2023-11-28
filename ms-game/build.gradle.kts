@@ -93,8 +93,8 @@ tasks {
                 files(classDirectories.files.map {
                     fileTree(it) {
                         exclude(
-                            "com/joystickjudgement/msmovie/configurations/**",
-                            "com/joystickjudgement/msmovie/enums/**",
+                            "com/joystickjudgement/msgame/configurations/**",
+                            "com/joystickjudgement/msgame/enums/**",
                         )
                     }
                 })

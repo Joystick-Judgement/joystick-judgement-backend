@@ -24,7 +24,7 @@ public class GameResource {
     @PostMapping
     public ResponseEntity<EntityModel<GameDTO>> create(@RequestBody @Valid GameDTO dto) {
 
-        log.info("Creating a game with data: {}", dto);
+        log.info("[START] -> Creating a game with data: {}", dto);
 
         var game = gameService.create(dto);
 
@@ -34,7 +34,7 @@ public class GameResource {
                 .buildAndExpand(game.getContent().id())
                 .toUri();
 
-        log.info("Game created with success! gameId: {}", game.getContent().id());
+        log.info("[END] -> Game created with success! gameId: {}", game.getContent().id());
 
         return ResponseEntity.created(uri).body(game);
     }

@@ -55,7 +55,7 @@ dependencies {
         "org.liquibase:liquibase-core:4.24.0",
         "org.springdoc:springdoc-openapi-starter-webmvc-ui:2.2.0",
         "ch.qos.logback.contrib:logback-json-classic:$LOGBACK_JSON_JACKSON_VERSION",
-        "ch.qos.logback.contrib:logback-jackson:0.1.5$LOGBACK_JSON_JACKSON_VERSION",
+        "ch.qos.logback.contrib:logback-jackson:$LOGBACK_JSON_JACKSON_VERSION",
         "net.logstash.logback:logstash-logback-encoder:7.4",
     )
     compileOnly("org.projectlombok:lombok:1.18.26")

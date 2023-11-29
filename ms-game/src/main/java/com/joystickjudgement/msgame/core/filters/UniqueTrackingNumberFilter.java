@@ -7,19 +7,29 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.log4j.Log4j2;
 import org.slf4j.MDC;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
 
-import static com.joystickjudgement.msgame.core.entities.GlobalConstantsSingleton.*;
+import static com.joystickjudgement.msgame.core.entities.GlobalConstantsSingleton.REQUEST_ID_HEADER;
 import static org.springframework.core.Ordered.HIGHEST_PRECEDENCE;
 
 @Component
 @Order(HIGHEST_PRECEDENCE)
 @Log4j2
 public class UniqueTrackingNumberFilter extends OncePerRequestFilter {
+
+    private static final String ACTUATOR_PATH = "/actuator";
+
+    @Value("${springdoc.swagger-ui.path}")
+    private String documentationPath;
+
+    private static final String SWAGGER_UI_PATH = "/swagger-ui";
+    private static final String SWAGGER_CONFIG_PATH = "/api-docs";
+
     @Override
     protected void doFilterInternal(
             final HttpServletRequest request,
@@ -32,7 +42,8 @@ public class UniqueTrackingNumberFilter extends OncePerRequestFilter {
         try {
             if (
                     request.getRequestURI().contains(ACTUATOR_PATH)
-                            || request.getRequestURI().contains(SWAGGER_PATH)
+                            || request.getRequestURI().contains(documentationPath)
+                            || request.getRequestURI().contains(SWAGGER_UI_PATH)
                             || request.getRequestURI().contains(SWAGGER_CONFIG_PATH)
             ) {
                 log.info("[END] - Request path: {} is not valid for this filter.", request.getRequestURI());

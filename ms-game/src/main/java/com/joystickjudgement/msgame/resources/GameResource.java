@@ -14,8 +14,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import static com.joystickjudgement.msgame.core.entities.GlobalConstantsSingleton.GAME_RESOURCE_BASE_PATH;
+
 @RestController
-@RequestMapping("games")
+@RequestMapping(GAME_RESOURCE_BASE_PATH)
 @RequiredArgsConstructor
 @Slf4j
 public class GameResource implements GameResourceDocs {

@@ -53,6 +53,9 @@ management:
   endpoints:
     enabled-by-default: false
 
+api:
+  key: ${API_KEY}
+
 springdoc:
   show-actuator: true
   swagger-ui:

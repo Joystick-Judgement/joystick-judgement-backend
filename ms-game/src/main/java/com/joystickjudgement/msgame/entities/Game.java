@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 import static jakarta.persistence.GenerationType.IDENTITY;
+import static java.math.BigInteger.ZERO;
 
 @Entity
 @ToString
@@ -61,7 +62,7 @@ public non-sealed class Game implements Auditable {
     @Column(name = "visualizations")
     @Getter
     @Setter
-    private BigInteger numberOfVisualizations;
+    private BigInteger numberOfVisualizations = ZERO;
 
     @OneToMany(orphanRemoval = true)
     @Getter

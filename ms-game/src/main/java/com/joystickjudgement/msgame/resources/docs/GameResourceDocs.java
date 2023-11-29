@@ -15,7 +15,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 
 import static com.joystickjudgement.msgame.core.entities.GlobalConstantsSingleton.API_KEY_HEADER;
-import static com.joystickjudgement.msgame.core.entities.GlobalConstantsSingleton.HTTP_CREATED_CODE;
+import static java.net.HttpURLConnection.HTTP_CREATED;
 
 @Tag(description = "<b>Recurso que gerencia os jogos.</b>", name = "games-resource")
 public interface GameResourceDocs {
@@ -33,7 +33,7 @@ public interface GameResourceDocs {
     @DefaultSwaggerResponses
     @ApiResponses(value = {
             @ApiResponse(
-                    responseCode = HTTP_CREATED_CODE,
+                    responseCode = "" + HTTP_CREATED,
                     description = "Recurso criado com sucesso.",
                     headers = {
                             @Header(

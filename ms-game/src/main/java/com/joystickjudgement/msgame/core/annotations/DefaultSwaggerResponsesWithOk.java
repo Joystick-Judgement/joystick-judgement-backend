@@ -5,12 +5,12 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 
 import java.lang.annotation.*;
 
-import static com.joystickjudgement.msgame.core.entities.GlobalConstantsSingleton.HTTP_OK_CODE;
+import static java.net.HttpURLConnection.HTTP_OK;
 
 @DefaultSwaggerHeaders
 @ApiResponses(value = {
         @ApiResponse(
-                responseCode = HTTP_OK_CODE,
+                responseCode = "" + HTTP_OK,
                 description = "Requisição processada com sucesso."
         )
 })

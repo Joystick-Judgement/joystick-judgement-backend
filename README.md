@@ -13,4 +13,3 @@
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=Joystick-Judgement_joystick-judgement-backend&metric=coverage)](https://sonarcloud.io/summary/new_code?id=Joystick-Judgement_joystick-judgement-backend)<br>
 [![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=Joystick-Judgement_joystick-judgement-backend&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=Joystick-Judgement_joystick-judgement-backend)<br>
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Joystick-Judgement_joystick-judgement-backend&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=Joystick-Judgement_joystick-judgement-backend)
-
